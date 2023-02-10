@@ -19,7 +19,7 @@ const LoginForm = () => {
 
   return (
     <div className="flex align-items-center justify-content-center h-screen">
-      <form onSubmit={loginSubmit} autoComplete="off">
+      <form onSubmit={loginSubmit}>
         <div className="p-fluid p-formgrid p-grid">
           <div className="p-4">
             <h2> Aprendiendo React Hook Forms</h2>
