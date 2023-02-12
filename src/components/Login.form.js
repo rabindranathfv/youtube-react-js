@@ -46,13 +46,7 @@ const LoginForm = () => {
             </span>
           </div>
           <div className="p-field p-col-12 p-md-12 p-2">
-            <Checkbox
-              inputId="rememberMe"
-              name="remenberMe"
-              checked={isChecked}
-              value={isChecked}
-              onChange={handleRememberMeChange}
-            />
+            <input type="checkbox" id="remenberMe" name="remenberMe" />
             <label htmlFor="rememberMe" className="p-checkbox-label p-2">
               Recuerdame
             </label>
