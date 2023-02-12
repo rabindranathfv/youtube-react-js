@@ -1,15 +1,8 @@
-import React, { useState } from "react";
-import { Checkbox } from "primereact/checkbox";
+import React from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 
 const LoginForm = () => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleRememberMeChange = (event) => {
-    setIsChecked(event.target.checked);
-  };
-
   const loginSubmit = (event) => {
     event.preventDefault();
     console.log(event.target.email.value);
@@ -19,7 +12,7 @@ const LoginForm = () => {
 
   return (
     <div className="flex align-items-center justify-content-center h-screen">
-      <form onSubmit={loginSubmit}>
+      <form autocomplete="off" onSubmit={loginSubmit}>
         <div className="p-fluid p-formgrid p-grid">
           <div className="p-4">
             <h2> Aprendiendo React Hook Forms</h2>
@@ -27,8 +20,9 @@ const LoginForm = () => {
           <div className="p-field p-col-12 p-md-12">
             <span className="p-float-label">
               <InputText
-                id="email"
+                id="new-email"
                 type="text"
+                name="new-email"
                 placeholder="introduzca su Email"
               />
               <label htmlFor="email">Email</label>
@@ -38,7 +32,9 @@ const LoginForm = () => {
           <div className="p-field p-col-12 p-md-12">
             <span className="p-float-label">
               <InputText
-                id="password"
+                name="new-password"
+                id="new-password"
+                autocomplete="new-password"
                 type="password"
                 placeholder="introduzca su contrasena"
               />
