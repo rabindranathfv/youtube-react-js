@@ -3,6 +3,9 @@ import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { useForm } from "react-hook-form";
 
+import { dataEncrpt } from "../utils/data-encrypt";
+import { dataDecrypt } from "../utils/data-decrypt";
+
 const LoginForm = () => {
   const {
     register,
@@ -16,7 +19,7 @@ const LoginForm = () => {
     const { email, isChecked } = formData;
 
     if (!!isChecked) {
-      localStorage.setItem("email", email);
+      localStorage.setItem("email", dataEncrpt(email));
       localStorage.setItem("isChecked", isChecked);
     } else if (!isChecked) {
       localStorage.clear();
@@ -30,7 +33,7 @@ const LoginForm = () => {
     const isCheckedStorage = localStorage.getItem("isChecked");
     const emailStorage = localStorage.getItem("email");
     if (!!isCheckedStorage) {
-      setValue("email", emailStorage, {
+      setValue("email", dataDecrypt(emailStorage), {
         shouldDirty: true,
         shouldValidate: true,
       });
